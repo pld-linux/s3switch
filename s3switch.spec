@@ -5,13 +5,13 @@ Version:	20031205
 Release:	4
 License:	Distributable
 Group:		Applications/System
-URL:            http://www.probo.com/timr/savage40.html
+URL:		http://www.probo.com/timr/savage40.html
 Source0:	ftp://ftp.probo.com/pub/s3ssrc.zip
 # Source0-md5:	1328b070343ac79c5ed4c613a1113754
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		%{name}-glibc-kernel-headers.patch
-Patch1:         %{name}-thinkpad-t23.patch
+Patch1:		%{name}-thinkpad-t23.patch
 BuildRequires:	unzip
 Requires(post,preun):	/sbin/chkconfig
 Requires:	glibc >= 2.2
