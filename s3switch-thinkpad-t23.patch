@@ -1,0 +1,15 @@
+--- s3switch-20031205/s3switch.c~	2002-09-12 01:25:33.000000000 +0300
++++ s3switch-20031205/s3switch.c	2003-07-30 10:47:45.000000000 +0300
+@@ -98,8 +98,12 @@
+     /* Allow or disallow access to I/O ports. */
+ 
+     ioperm( 0x40, 4, enable );
++    ioperm( 0x4f, 1, enable );
+     ioperm( 0x61, 1, enable );
++    ioperm( 0x70, 1, enable );
++    ioperm( 0x71, 1, enable );
+     ioperm( 0x80, 1, enable );
++    ioperm( 0xb2, 1, enable );
+     ioperm( 0x3b0, 0x30, enable );
+ }
+ 
