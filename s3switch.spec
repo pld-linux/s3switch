@@ -3,8 +3,9 @@ Summary(pl):	Narzêdzie do prze³±czania siê pomiêdzy ró¿nymi wyj¶ciami na kartach
 Name:		s3switch
 Version:	20031205
 Release:	4
-License:	GPL
+License:	Distributable
 Group:		Applications/System
+URL:            http://www.probo.com/timr/savage40.html
 Source0:	ftp://ftp.probo.com/pub/s3ssrc.zip
 # Source0-md5:	1328b070343ac79c5ed4c613a1113754
 Source1:	%{name}.init
