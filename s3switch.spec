@@ -5,7 +5,7 @@ Version:	20031205
 Release:	2
 License:	GPL
 Group:		Applications/System
-Source0:	http://www.probo.com/timr/s3ssrc.zip
+Source0:	ftp://ftp.probo.com/pub/s3ssrc.zip
 # Source0-md5:	1328b070343ac79c5ed4c613a1113754
 Source1:	s3switch.init
 Source2:	s3switch.sysconfig
