@@ -16,12 +16,12 @@ if [ -f /etc/sysconfig/s3switch ]; then
 	. /etc/sysconfig/s3switch
 fi
 
+RETVAL=0
 # See how we were called.
 case "$1" in
   start)
 	# Check if service is already running?
 	if [ ! -f /var/lock/subsys/s3switch ]; then
-
 		if [ -n "${S3_OUTPUT}" ]; then
 			show "Seting S3 output device"
 			busy
@@ -31,7 +31,7 @@ case "$1" in
 		else
 			nls "You don't have any output device configured"
 			nls "please visit /etc/sysconfig/s3switch"
-			exit 6
+			RETVAL=6
 		fi
 	else
 		msg_already_running s3switch
@@ -39,22 +39,30 @@ case "$1" in
 	;;
   stop)
 	if [ -f /var/lock/subsys/s3switch ]; then
+		msg_stopping s3switch
+		/usr/sbin/s3switch -q BOTH
 		rm -f /var/lock/subsys/s3switch
 	else
 		msg_not_running s3switch
 	fi
 	;;
   status)
+	if [ -f /var/lock/subsys/s3switch ]; then
+		RETVAL=0;
+	else
+		msg_not_running s3switch
+		RETVAL=3
+	fi
 	/usr/sbin/s3switch
 	;;
   restart|force-reload)
 	$0 stop
 	$0 start
-#	exit $?
+	RETVAL=$?
 	;;
   *)
 	msg_usage "$0 {start|stop|restart|force-reload|status}"
-	exit 3
+	RETVAL=3
 esac
 
-exit 0
+exit $RETVAL
