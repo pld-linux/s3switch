@@ -1,0 +1,13 @@
+# $Id$
+#
+# This file lets you set your default video output
+# on your S3 Savage cards
+#
+# Avaliable options are
+# CRT - analog monitor output
+# LCD - LCD display
+# TV - TV output
+# BOTH - CRT + LCD
+# muliply options are allowed
+
+S3_OUTPUT="CRT LCD"

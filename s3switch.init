@@ -1,0 +1,59 @@
+#!/bin/sh
+#
+# s3switch:	Sets up video output on S3 Savage cards.
+#
+#
+# chkconfig:	2345 70 31
+# description:	s3switch is a utility with which video outputs on S3 Savage cards can be set
+#
+# config:	/etc/sysconfig/s3switch
+
+# Source function library
+. /etc/rc.d/init.d/functions
+
+# Get service config
+if [ -f /etc/sysconfig/s3switch ]; then
+	. /etc/sysconfig/s3switch
+fi
+
+# See how we were called.
+case "$1" in
+  start)
+	# Check if service is already running?
+	if [ ! -f /var/lock/subsys/s3switch ]; then
+
+		if [ -n "${S3_OUTPUT}" ]; then
+			show "Seting S3 output device"
+			busy
+			/usr/sbin/s3switch -q $S3_OUTPUT
+			touch /var/lock/subsys/s3switch
+			ok
+		else
+			nls "You don't have any output device configured"
+			nls "please visit /etc/sysconfig/s3switch"
+		fi
+	else
+		msg_already_running s3switch
+	fi
+	;;
+  stop)
+	if [ -f /var/lock/subsys/s3switch ]; then
+		rm -f /var/lock/subsys/s3switch
+	else
+		msg_not_running s3switch
+	fi
+	;;
+  status)
+	/usr/sbin/s3switch
+	;;
+  restart|force-reload)
+	$0 stop
+	$0 start
+#	exit $?
+	;;
+  *)
+	msg_usage "$0 {start|stop|restart|force-reload|status}"
+	exit 3
+esac
+
+exit 0
