@@ -40,8 +40,10 @@ case "$1" in
   stop)
 	if [ -f /var/lock/subsys/s3switch ]; then
 		msg_stopping s3switch
+		busy
 		/usr/sbin/s3switch -q BOTH
 		rm -f /var/lock/subsys/s3switch
+		ok
 	else
 		msg_not_running s3switch
 	fi
