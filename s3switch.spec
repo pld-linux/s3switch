@@ -2,13 +2,14 @@ Summary:	Utility to switch display between the various output devices on S3 Sava
 Summary(pl):	Narzêdzie do prze³±czania siê pomiêdzy ró¿nymi wyj¶ciami na kartach S3 Savage
 Name:		s3switch
 Version:	20031205
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.probo.com/pub/s3ssrc.zip
 # Source0-md5:	1328b070343ac79c5ed4c613a1113754
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
+Patch0:		%{name}-glibc-kernel-headers.patch
 BuildRequires:	glibc-devel
 BuildRequires:	unzip
 Requires(post,preun):	/sbin/chkconfig
@@ -26,6 +27,7 @@ urz±dzeniami wyj¶ciowymi wspieranymi przez S3 Savage (CRT, LCD, TV).
 
 %prep
 %setup -q -c
+%patch0 -p1
 
 %build
 %{__make} \
