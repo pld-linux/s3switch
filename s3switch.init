@@ -31,6 +31,7 @@ case "$1" in
 		else
 			nls "You don't have any output device configured"
 			nls "please visit /etc/sysconfig/s3switch"
+			exit 6
 		fi
 	else
 		msg_already_running s3switch
