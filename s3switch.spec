@@ -1,5 +1,5 @@
-Summary:	Utility to switch your display between the various output devices on S3 Savage cards
-Summary(pl):	Narzêdzie s³u¿±ce do prze³±czania siê pomiêdzy ró¿nymi wyj¶ciami na kartach S3 Savage
+Summary:	Utility to switch display between the various output devices on S3 Savage cards
+Summary(pl):	Narzêdzie do prze³±czania siê pomiêdzy ró¿nymi wyj¶ciami na kartach S3 Savage
 Name:		s3switch
 Version:	20031205
 Release:	2
@@ -10,11 +10,10 @@ Source0:	ftp://ftp.probo.com/pub/s3ssrc.zip
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 BuildRequires:	glibc-devel
-BuildRequires:	glibc-kernel-headers
-BuildRequires:	make
 BuildRequires:	unzip
-Requires:	glibc >= 2.2
 Requires(post,preun):	/sbin/chkconfig
+Requires:	glibc >= 2.2
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,15 +21,16 @@ Utility that will allow you to switch your display between the various
 output devices supported by the Savage (CRT, LCD, TV).
 
 %description -l pl
-Narzêdzie które pozwala prze³±czaæ wy¶iwetlanie ekranu pomiêdzy
-ró¿nymi urz±dzeniami wyj¶ciowymi wspieranymi przez S3 Savage (CRT,
-LCD, TV).
+Narzêdzie pozwalaj±ce prze³±czaæ wy¶wietlanie ekranu pomiêdzy ró¿nymi
+urz±dzeniami wyj¶ciowymi wspieranymi przez S3 Savage (CRT, LCD, TV).
 
 %prep
 %setup -q -c
 
 %build
-%{__make}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
