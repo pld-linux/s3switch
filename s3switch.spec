@@ -10,7 +10,6 @@ Source0:	ftp://ftp.probo.com/pub/s3ssrc.zip
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		%{name}-glibc-kernel-headers.patch
-BuildRequires:	glibc-devel
 BuildRequires:	unzip
 Requires(post,preun):	/sbin/chkconfig
 Requires:	glibc >= 2.2
