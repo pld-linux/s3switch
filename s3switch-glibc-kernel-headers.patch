@@ -1,0 +1,11 @@
+--- s3switch-20031205/s3switch.c.orig	2003-12-25 01:32:23.787806912 +0100
++++ s3switch-20031205/s3switch.c	2003-12-25 01:32:32.512480560 +0100
+@@ -5,7 +5,7 @@
+ 
+ #include <stdio.h>
+ #define extern
+-#include <asm/io.h>
++#include <sys/io.h>
+ #undef extern
+ 
+ #include "lrmi.h"
