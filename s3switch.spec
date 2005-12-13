@@ -61,5 +61,5 @@ fi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_sbindir}/*
 %attr(754,root,root) /etc/rc.d/init.d/s3switch
-%config(noreplace) %verify(not size mtime md5) /etc/sysconfig/s3switch
+%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/s3switch
 %{_mandir}/man*/*
