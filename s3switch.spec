@@ -1,5 +1,5 @@
 Summary:	Utility to switch display between the various output devices on S3 Savage cards
-Summary(pl):	Narzêdzie do prze³±czania siê pomiêdzy ró¿nymi wyj¶ciami na kartach S3 Savage
+Summary(pl.UTF-8):   NarzÄ™dzie do przeÅ‚Ä…czania siÄ™ pomiÄ™dzy rÃ³Å¼nymi wyjÅ›ciami na kartach S3 Savage
 Name:		s3switch
 Version:	20031205
 Release:	4
@@ -22,9 +22,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Utility that will allow you to switch your display between the various
 output devices supported by the Savage (CRT, LCD, TV).
 
-%description -l pl
-Narzêdzie pozwalaj±ce prze³±czaæ wy¶wietlanie ekranu pomiêdzy ró¿nymi
-urz±dzeniami wyj¶ciowymi wspieranymi przez S3 Savage (CRT, LCD, TV).
+%description -l pl.UTF-8
+NarzÄ™dzie pozwalajÄ…ce przeÅ‚Ä…czaÄ‡ wyÅ›wietlanie ekranu pomiÄ™dzy rÃ³Å¼nymi
+urzÄ…dzeniami wyjÅ›ciowymi wspieranymi przez S3 Savage (CRT, LCD, TV).
 
 %prep
 %setup -q -c
