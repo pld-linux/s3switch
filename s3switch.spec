@@ -1,5 +1,5 @@
 Summary:	Utility to switch display between the various output devices on S3 Savage cards
-Summary(pl.UTF-8):   Narzędzie do przełączania się pomiędzy różnymi wyjściami na kartach S3 Savage
+Summary(pl.UTF-8):	Narzędzie do przełączania się pomiędzy różnymi wyjściami na kartach S3 Savage
 Name:		s3switch
 Version:	20031205
 Release:	4
