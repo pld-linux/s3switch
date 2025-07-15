@@ -28,8 +28,8 @@ urządzeniami wyjściowymi wspieranymi przez S3 Savage (CRT, LCD, TV).
 
 %prep
 %setup -q -c
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %{__make} \
